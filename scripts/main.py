@@ -15,7 +15,8 @@ def main():
     scripts = [
         'scripts/data_cleaning.py',
         'scripts/data_fetching.py',
-        'scripts/data_ingestion.py'
+        'scripts/data_ingestion.py',
+        'scripts/create_views.py'
     ]
 
     for script in scripts:
