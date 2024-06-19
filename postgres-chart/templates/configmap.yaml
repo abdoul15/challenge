@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+data:
+  postgresql.conf: |
+    max_connections = {{ .Values.postgresql.config.max_connections }}
+    shared_buffers = {{ .Values.postgresql.config.shared_buffers }}
+    log_statement = '{{ .Values.postgresql.config.log_statement }}'

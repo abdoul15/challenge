@@ -1,0 +1,24 @@
+replicaCount: 1
+
+image:
+  repository: abdoul14/chatest
+  tag: v1.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+postgresql:
+  host: postgres
+  port: 5432
+  database: my_movies
+  username: postgres
+  password: xavite  # Le mot de passe en clair pour faciliter la lecture
+  passwordSecretName: postgres-secret
+  passwordSecretKey: postgres-password

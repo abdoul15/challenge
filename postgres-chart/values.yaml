@@ -1,0 +1,28 @@
+replicaCount: 1
+
+image:
+  repository: postgres
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5432
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+persistence:
+  size: 5Gi
+
+postgresql:
+  config:
+    max_connections: 100
+    shared_buffers: 256MB
+    log_statement: 'all'
+  host: postgres
+  database: my_movies
+  username: postgres
+  password: your-postgres-password  # Mettre ici le mot de passe en clair

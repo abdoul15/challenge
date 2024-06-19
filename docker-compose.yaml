@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: my_movies
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: xavite
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+    command: ["python", "scripts/main.py"]
+
+  superset:
+    image: apache/superset:latest
+    container_name: superset
+    ports:
+      - "8088:8088"
+    environment:
+      SUPERSET_LOAD_EXAMPLES: "yes"
+      SUPERSET_SECRET_KEY: "joCBUtbh3dW7CK7r0D3rbbnj5uDpdQ9wPoSYVKpSu3Q"
+    volumes:
+      - superset_home:/app/superset_home
+    depends_on:
+      - postgres
+    command:
+      - /bin/sh
+      - -c
+      - |
+        superset db upgrade &&
+        superset init &&
+        superset run -h 0.0.0.0 -p 8088
+
+volumes:
+  postgres_data:
+  superset_home:
