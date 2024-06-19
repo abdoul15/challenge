@@ -63,4 +63,3 @@ Ce projet a pour but de concevoir une architecture de données permettant d'ing�
 
 ---
 
-N'hésitez pas à contribuer à ce projet en soumettant des issues ou des pull requests. Bon codage ! 🎉
