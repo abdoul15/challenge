@@ -62,4 +62,4 @@ Ce projet a pour but de concevoir une architecture de données permettant d'ing�
     ```
 
 ---
-
+Si vous vous connectez à Superset avec `localhost` ou `127.0.0.1` , il pourrait vous dire que le port `5432` est fermé, dans ce cas indiqué `host.docker.internal`
