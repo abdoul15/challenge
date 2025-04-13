@@ -17,7 +17,7 @@ Ce projet a pour but de concevoir une architecture de données permettant d'ing�
 2. **Créer le fichier `.env`** :
     Ajoutez les informations suivantes :
     ```env
-    TMDB_API_KEY=f85659b0221cb3d47786757dcc8c0fc4
+    TMDB_API_KEY=your_tmdb_apikey
     DATABASE_URL=postgresql+psycopg2://postgres:xavite@postgres:5432/my_movies
     ```
 
